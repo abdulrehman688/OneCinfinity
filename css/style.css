@@ -581,6 +581,10 @@ body.no-scroll{
     padding: 20px;
 }
 
+.newsletter-popup.hidden{
+    display: none !important;
+}
+
 .newsletter-popup-backdrop{
     position: absolute;
     inset: 0;

@@ -3779,6 +3779,7 @@ body.lightmode .newsletter-layout{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .card-chooseus:nth-child(even) .chooseus-icon{

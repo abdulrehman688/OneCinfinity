@@ -62,6 +62,14 @@ function initSubmitNewsletter() {
         }
 
         if (isValid) {
+            // If form is configured for Netlify, allow native submission so Netlify captures it.
+            if ($(this).is('[data-netlify="true"]')) {
+                // submit using native DOM submit to avoid re-triggering this handler
+                event.currentTarget.submit();
+                return;
+            }
+
+            // fallback: show success message and reset (original behavior)
             $successMessage.removeClass('hidden');
             $('#newsletterForm')[0].reset();
             setTimeout(function() {

@@ -2,6 +2,7 @@ Promise.all([
     fetch("header.html").then(res => res.text()),
     fetch("footer.html").then(res => res.text()),
     fetch("sidebar.html").then(res => res.text()),
+    fetch("search-form.html").then(res => res.text())
   ])
   .then(([headerHTML, footerHTML, sidebarHTML, searchHTML]) => {
     $("#header").html(headerHTML);
@@ -85,32 +86,17 @@ function initThemeSwitch() {
 
     const updateLogos = () => {
         const siteLogos = $('.site-logo');
-        const partnerLogos = $('.partner-logo');
 
         if (lightMode) {
             $('body').addClass('lightmode');
             localStorage.setItem('lightmode', 'active');
 
             siteLogos.attr('src', 'image/OneCinfinity logo light.png');
-
-            partnerLogos.each(function () {
-                const $img = $(this);
-                const src = $img.attr('src');
-                if (!src.includes('-dark')) {
-                    $img.attr('src', src.replace('.png', '-dark.html'));
-                }
-            });
         } else {
             $('body').removeClass('lightmode');
             localStorage.removeItem('lightmode');
 
             siteLogos.attr('src', 'image/OneCinfinity logo dark.png');
-
-            partnerLogos.each(function () {
-                const $img = $(this);
-                const src = $img.attr('src');
-                $img.attr('src', src.replace('-dark.html', '.png'));
-            });
         }
     };
 

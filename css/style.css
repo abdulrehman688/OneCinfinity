@@ -175,6 +175,11 @@
     --line-height-ultra-tight: 0.9em;
     --line-height-px-20: 20px;
     --line-height-px-21: 21px;
+
+    /* Card and section variables */
+    --card-bg: var(--accent-color-3);
+    --card-text: var(--accent-color-2);
+    --section-founder-gradient: linear-gradient(135deg, rgba(236,27,35,0.03), rgba(0,0,0,0));
 }
 
 .lightmode{
@@ -190,6 +195,10 @@
     --accent-color-7: #FFFFFF8C;
     --star-color: #EFBC2A;
     --error-color: #E63946;
+
+    --card-bg: var(--accent-color-2);
+    --card-text: var(--accent-color-3);
+    --section-founder-gradient: linear-gradient(135deg, rgba(200,42,239,0.04), rgba(236,27,35,0.02));
 }
 
 /* ================== 03. Keyframes Animations ================== */
@@ -1497,63 +1506,65 @@ body.lightmode .banner-layout-wrapper::before {
 }
 
 /* ================== 16. Digital Process ================== */
-
-.section-wrapper-digital-process{
-    padding: 0px 30px 0px 30px;
+.section-founder{
+    padding: 80px 20px;
+    background: var(--section-founder-gradient);
 }
 
-.section-wrapper-digital-process .spacer{
-    align-self: center;
-    width: initial;
-    height: 3px;
-    background-color: transparent;
-    background-image: radial-gradient(at center center, var(--accent-color-6) 0%, var(--accent-transparent) 70%);
-}
-
-.digital-process-banner{
-    position: relative;
-    background-color: transparent;
-    background-image: radial-gradient(at top left, var(--accent-color-3) 0%, var(--secondary) 50%);
+.section-founder .image-container{
+    border-radius: 16px;
     overflow: hidden;
-    border: 1px solid var(--accent-color-3);
-    border-radius: var(--global-border-radius);
-    padding: 120px 20px 120px 20px;
-    z-index: 1;
 }
 
-body.lightmode .digital-process-banner{
-    background-image: radial-gradient(at top left, var(--accent-color-4) 0%, var(--accent-color-4) 50%);
-}
-
-.digital-process-content{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    gap: 50px 50px;
-    z-index: 2;
-}
-
-.digital-process-banner::before{
-    content: '';
-    position: absolute;
+.section-founder .founder-image{
+    display: block;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    background-color: transparent;
-    background-image: radial-gradient(at bottom center, var(--accent-color) 0%, var(--accent-transparent) 40%);
-    opacity: 0.2;
-    z-index: 0;
+    object-fit: cover;
 }
 
-.digital-process-steps-wrapper{
-    display: flex;   
-    border-radius: var(--global-border-radius);
+.card-founder{
+    background: var(--card-bg);
+    color: var(--card-text);
+    padding: 36px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.card-founder .founder-content{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-founder .founder-accent{
+    width: 56px;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+.card-founder .sub-heading{
+    margin-bottom: 6px;
+}
+
+.card-founder .title-heading{
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 1199px){
+    .section-founder{ padding: 60px 16px; }
+}
+
+@media (max-width: 767px){
+    .card-founder{ padding: 24px; 
+    
     padding: 2px 2px 0px 2px;
     overflow: hidden;
     position: relative;
     z-index: 1;
-}
+}}
 
 .digital-process-steps-wrapper::before{
     content: '';
@@ -5313,5 +5324,222 @@ body.lightmode .cta-service-banner::before{
     .copyright,
     .legal-link{
         font-size: var(--font-size-xs);
+    }
+}/* ================== FOUNDER SECTION ================== */
+
+.section-founder {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(236, 27, 35, 0.04) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+body.lightmode .section-founder {
+    background: #FFFFFF;
+}
+
+/* Founder image container */
+.founder-image-wrapper {
+    overflow: hidden;
+    border-radius: 12px;
+    display: block;
+}
+
+.founder-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* Founder message card */
+.founder-card {
+    background: var(--card-bg);
+    color: var(--card-text);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+body.lightmode .founder-card {
+    background: #FFFFFF;
+    color: #1F1F1F;
+    border: 1px solid #ffe0e3;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Founder header with accent */
+.founder-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.founder-accent {
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+.founder-header .sub-heading {
+    margin: 0;
+}
+
+.founder-title {
+    margin: 0;
+    font-size: var(--font-size-9xl);
+    line-height: var(--line-height-normal);
+}
+
+.founder-description {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-extra-loose);
+    color: var(--text-color);
+}
+
+.founder-btn {
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+    .section-founder {
+        padding: 80px 16px;
+    }
+
+    .founder-card {
+        padding: 32px;
+    }
+}
+
+@media (max-width: 767px) {
+    .section-founder {
+        padding: 60px 16px;
+    }
+
+    .founder-card {
+        padding: 24px;
+        gap: 16px;
+    }
+
+    .founder-title {
+        font-size: var(--font-size-8xl);
+    }
+
+    .founder-description {
+        font-size: var(--font-size-base);
+    }
+}
+/* ================== FOUNDER SECTION ================== */
+
+.section-founder {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, rgba(236, 27, 35, 0.04) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+body.lightmode .section-founder {
+    background: #FFFFFF;
+}
+
+/* Founder image container */
+.founder-image-wrapper {
+    overflow: hidden;
+    border-radius: 12px;
+    display: block;
+}
+
+.founder-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* Founder message card */
+.founder-card {
+    background: var(--card-bg);
+    color: var(--card-text);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+body.lightmode .founder-card {
+    background: #FFFFFF;
+    color: #1F1F1F;
+    border: 1px solid #ffe0e3;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Founder header with accent */
+.founder-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.founder-accent {
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+.founder-header .sub-heading {
+    margin: 0;
+}
+
+.founder-title {
+    margin: 0;
+    font-size: var(--font-size-9xl);
+    line-height: var(--line-height-normal);
+}
+
+.founder-description {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-extra-loose);
+    color: var(--text-color);
+}
+
+.founder-btn {
+    align-self: flex-start;
+    margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+    .section-founder {
+        padding: 80px 16px;
+    }
+
+    .founder-card {
+        padding: 32px;
+    }
+}
+
+@media (max-width: 767px) {
+    .section-founder {
+        padding: 60px 16px;
+    }
+
+    .founder-card {
+        padding: 24px;
+        gap: 16px;
+    }
+
+    .founder-title {
+        font-size: var(--font-size-8xl);
+    }
+
+    .founder-description {
+        font-size: var(--font-size-base);
     }
 }

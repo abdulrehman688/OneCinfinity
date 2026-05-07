@@ -37,7 +37,6 @@ function initSubmitNewsletter() {
         event.preventDefault();
 
         var $email = $('#newsletter-email');
-        var $successMessage = $('#newsletter-success');
         var $errorMessage = $('#newsletter-error');
         var $errorText = $email.next('.error-text');
 
@@ -62,22 +61,9 @@ function initSubmitNewsletter() {
         }
 
         if (isValid) {
-            // If form is configured for Netlify, allow native submission so Netlify captures it.
-            if ($(this).is('[data-netlify="true"]')) {
-                // submit using native DOM submit to avoid re-triggering this handler
-                event.currentTarget.submit();
-                return;
-            }
-
-            // fallback: show success message and reset (original behavior)
-            $successMessage.removeClass('hidden');
-            $('#newsletterForm')[0].reset();
-            setTimeout(function() {
-                $successMessage.addClass('hidden');
-            }, 3000);
+            event.currentTarget.submit();
         } else {
             $errorMessage.removeClass('hidden');
-            $('#newsletterForm')[0].reset();
             setTimeout(function() {
                 $errorMessage.addClass('hidden');
             }, 3000);

@@ -61,7 +61,6 @@ function initSubmitNewsletter() {
         }
 
         if (isValid) {
-            // Let Netlify handle the successful submission with its default success page.
             event.currentTarget.submit();
         } else {
             $errorMessage.removeClass('hidden');
@@ -70,4 +69,22 @@ function initSubmitNewsletter() {
             }, 3000);
         }
     });
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('newsletter') === 'success') {
+        const $popup = $('#newsletter-popup');
+        if ($popup.length === 0) return;
+
+        $popup.removeClass('hidden').attr('aria-hidden', 'false');
+        $('body').addClass('no-scroll');
+
+        const closePopup = function() {
+            $popup.addClass('hidden').attr('aria-hidden', 'true');
+            $('body').removeClass('no-scroll');
+            window.history.replaceState({}, '', window.location.pathname);
+        };
+
+        $popup.find('.newsletter-popup-close, .newsletter-popup-backdrop').on('click', closePopup);
+        setTimeout(closePopup, 4500);
+    }
 }

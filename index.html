@@ -1214,7 +1214,7 @@
                                 <p class="text-center">Oops! Form submission failed. Please try again.</p>
                             </div>
 
-                            <form name="newsletterForm" id="newsletterForm" action="index.html" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="needs-validation animate-box animated animate__animated" data-animate="animate__fadeInRight">
+                            <form name="newsletterForm" id="newsletterForm" action="index.html?newsletter=success" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="needs-validation animate-box animated animate__animated" data-animate="animate__fadeInRight">
                                 <input type="hidden" name="form-name" value="newsletterForm">
                                 <p class="hidden"><label>Don’t fill this out if you're human: <input name="bot-field"></label></p>
                                 <div class="input-container">
@@ -1233,6 +1233,20 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div id="newsletter-popup" class="newsletter-popup hidden" aria-hidden="true">
+            <div class="newsletter-popup-backdrop"></div>
+            <div class="newsletter-popup-card" role="dialog" aria-modal="true" aria-labelledby="newsletter-popup-title">
+                <button type="button" class="newsletter-popup-close" aria-label="Close success popup">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="newsletter-popup-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 id="newsletter-popup-title">Subscribed successfully</h3>
+                <p>Thanks for joining the OneCinfinity newsletter. We’ll keep you updated with the latest insights.</p>
             </div>
         </div>
 

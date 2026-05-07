@@ -581,10 +581,6 @@ body.no-scroll{
     padding: 20px;
 }
 
-.newsletter-popup.hidden{
-    display: none !important;
-}
-
 .newsletter-popup-backdrop{
     position: absolute;
     inset: 0;
@@ -1059,6 +1055,10 @@ body.lightmode #newsletterForm input:autofill:focus{
     color: var(--primary);
 }
 
+#newsletter-success{
+    background-color: var(--primary);
+    color: var(--primary);
+}
 #newsletter-error{
     background-color: var(--primary);
     color: var(--primary);
